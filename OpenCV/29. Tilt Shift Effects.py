@@ -15,7 +15,6 @@ def imshow(title = "Image", image = None, size = 10):
     plt.title(title)
     plt.show()
     
-#!/usr/bin/python
 """Script to blend two images."""
 
 
@@ -313,14 +312,12 @@ def main():
     for photo, white_img, black_img, mask_img in get_images(sourcefolder):
         imshow("Original Image", black_img)
         print("...applying blending")
-        black_img = black_img.astype(float)
-        white_img = white_img.astype(float)
-        mask_img = mask_img.astype(float) / 255
+        mask_img = mask_img) / 255.0
 
         out_layers = []
         for channel in range(3):
             outimg = run_blend(black_img[:, :, channel],
-                               white_img[:, :, channel],
+                               white_img[:, :, channel],z
                                mask_img[:, :, channel])
             out_layers.append(outimg)
 
